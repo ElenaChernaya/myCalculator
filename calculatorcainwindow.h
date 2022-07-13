@@ -224,9 +224,17 @@ public slots:
         if (divOk)
         {
             numSecond = (label->text()).toDouble();
-            numbers = numFirst / numSecond;
-            newLabel = QString::number(numbers, 'g', 13);
-            label->setText(newLabel);
+            if (numSecond == 0)
+            {
+                label->setText("error");
+            }
+            else
+            {
+                numbers = numFirst / numSecond;
+                newLabel = QString::number(numbers, 'g', 13);
+                label->setText(newLabel);
+            }
+
             divOk = false;
         }
     };
